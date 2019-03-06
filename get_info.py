@@ -39,6 +39,7 @@ for x in range(1, 8):
     url = base_url.format(x)
     get_detail(url)
 
+
 workbook = xlsxwriter.Workbook('page_info.xlsx')  # 建立文件
 worksheet = workbook.add_worksheet('')  # 建立sheet， 可以work.add_worksheet('employee')来指定sheet名，但中文名会报UnicodeDecodeErro的错误
 for index, li in enumerate(form_info):
