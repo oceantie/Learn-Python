@@ -22,7 +22,7 @@ def get_detail(url):
     for tab in tables:
         names =(tab.xpath('.//tbody/tr[2]/td[2]/text()') if tab.xpath('.//tbody/tr[2]/td[1]/text()')[0].startswith('姓名') else [2])
         phone = (tab.xpath('.//tbody/tr[3]/td[2]/text()') if tab.xpath('.//tbody/tr[3]/td[1]/text()')[0].startswith('电话') else [2])
-        major = (tab.xpath('.//tbody/tr[4]/td[2]/text()') if tab.xpath('.//tbody/tr[2]/td[1]/text()')[0].startswith('电话') else [2])
+        major = (tab.xpath('.//tbody/tr[4]/td[2]/text()') if tab.xpath('.//tbody/tr[2]/td[1]/text()')[0].startswith('姓名') else [2])
         time=(tab.xpath('.//tbody/tr[5]/td[2]/text()') if tab.xpath('.//tbody/tr[2]/td[1]/text()')[0].startswith('姓名') else [2])
         url = (tab.xpath('.//tbody/tr[6]/td[2]/text()') if tab.xpath('.//tbody/tr[2]/td[1]/text()')[0].startswith('姓名') else [2])
         info={
