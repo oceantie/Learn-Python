@@ -44,6 +44,7 @@ def xdfxx():
     path = "F:\chromedrive\chromedriver.exe"
     driver = webdriver.Chrome(executable_path=path)
     driver.get("http://m.scxdfxx.com/")
+    time.sleep(5)
     iframe = driver.find_element_by_id("ks_dir_ifra")
     driver.switch_to.frame(iframe)
     driver.find_element_by_id('minimize').click()
@@ -53,7 +54,7 @@ def xdfxx():
     # tel=driver.find_element_by_xpath("//input[@placeholder='请输入您的电话号码']")
     # tel.send_keys(phone)
     # button = driver.find_element_by_xpath("//input[@name='submit']")
-    button.click()
+    # button.click()
     driver.quit()
 
 
