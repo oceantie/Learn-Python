@@ -2,11 +2,26 @@ from selenium import webdriver
 import time
 import threading
 
-# phone='18628246713'
-# path = "F:\chromedrive\chromedriver.exe"
+phone='17428546713'
+path = "F:\chromedrive\chromedriver.exe"
 # driver=webdriver.Chrome(executable_path=path)
+
+
+chromeOptions = webdriver.ChromeOptions()
+chromeOptions.add_argument("--proxy-server=http://119.180.140.140:8060")
+# 一定要注意，=两边不能有空格，不能是这样--proxy-server = http://202.20.16.82:10152
+browser = webdriver.Chrome(executable_path=path,options = chromeOptions)
+
+# 查看本机ip，查看代理是否起作用
+browser.get("http://httpbin.org/ip")
+print(browser.page_source)
+
+# 退出，清除浏览器缓存
+time.sleep(3)
+browser.quit()
+
 def zhihu():
-    phone = '18628246713'
+    # phone = '18628246713'
     path = "F:\chromedrive\chromedriver.exe"
     driver = webdriver.Chrome(executable_path=path)
     driver.get("https://www.zhihu.com/signup?next=%2F")
@@ -16,7 +31,7 @@ def zhihu():
     button.click()
     driver.quit()
 def guazi():
-    phone = '18628246713'
+    # phone = '18628246713'
     path = "F:\chromedrive\chromedriver.exe"
     driver = webdriver.Chrome(executable_path=path)
     driver.get("https://www.guazi.com/www/bj/buy")
@@ -28,7 +43,7 @@ def guazi():
     button.click()
     driver.quit()
 def wph():
-    phone = '18628246713'
+    # phone = '18628246713'
     path = "F:\chromedrive\chromedriver.exe"
     driver = webdriver.Chrome(executable_path=path)
     driver.get("https://passport.vip.com/register?src=https%3A%2F%2Fwww.vip.com%2F")
@@ -39,39 +54,43 @@ def wph():
     button.click()
     driver.quit()
 
-def xdfxx():
-    phone = '18599854178'
+def wantong():
+    phone = '17628887713'
     path = "F:\chromedrive\chromedriver.exe"
     driver = webdriver.Chrome(executable_path=path)
-    driver.get("http://m.scxdfxx.com/")
-    time.sleep(5)
-    iframe = driver.find_element_by_id("ks_dir_ifra")
-    driver.switch_to.frame(iframe)
-    driver.find_element_by_id('minimize').click()
-    driver.switch_to.default_content()
 
-    # nam=driver.find_element_by_xpath("//input[@placeholder='请输入您的尊称']").send_keys("测试")
-    # tel=driver.find_element_by_xpath("//input[@placeholder='请输入您的电话号码']")
-    # tel.send_keys(phone)
-    # button = driver.find_element_by_xpath("//input[@name='submit']")
-    # button.click()
+    driver.get("http://wap.scwtqx.com/mfdh.html")
+    tel = driver.find_element_by_xpath("//input[@placeholder='请输入您的手机号码']")
+    tel.send_keys(phone)
+    button=driver.find_element_by_xpath("//button[@id='cbBtnkst']").click()
+    driver.quit()
+
+def omik_cd():
+    phone = '17441887713'
+    path = "F:\chromedrive\chromedriver.exe"
+    chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.add_argument("--proxy-server=http://119.180.140.140:8060")
+    # 一定要注意，=两边不能有空格，不能是这样--proxy-server = http://202.20.16.82:10152
+    driver = webdriver.Chrome(executable_path=path, options=chromeOptions)
+    # driver = webdriver.Chrome(executable_path=path)
+    driver.get("http://m.cdomick.com/zy/xidian/1.html")
+    name = driver.find_element_by_xpath("//input[@placeholder='您的姓名']")
+    name.send_keys('王远')
+    name = driver.find_element_by_xpath("//input[@placeholder='您的手机号']")
+    name.send_keys(phone)
+    time.sleep(1)
+    button = driver.find_element_by_xpath("//div[@class='zhuanye btn-omick1']").click()
     driver.quit()
 
 
 if __name__ == '__main__':
-    # zhihu()
-    # guazi()
-    # wph()
-    xdfxx()
-
-
     # t1=threading.Thread(target=zhihu)
     # t2=threading.Thread(target=guazi)
     # t3 = threading.Thread(target=wph)
-    # t4 = threading.Thread(target=yhf)
     # t1.start()
     # t2.start()
     # t3.start()
-    # t4.start()
+    # wantong()
+    omik_cd()
 
 
