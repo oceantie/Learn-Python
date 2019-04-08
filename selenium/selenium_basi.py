@@ -42,3 +42,4 @@ print('='*30)
 print(driver.get_cookie('PSTM'))
 #删除所有的cookies
 driver.delete_all_cookies()
+

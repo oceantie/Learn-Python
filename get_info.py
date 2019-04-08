@@ -53,4 +53,4 @@ def spider(num):
         get_detail(url)
     write_excel('xdf_info3.xlsx',form_info)
 
-spider(11)
+spider(5)
