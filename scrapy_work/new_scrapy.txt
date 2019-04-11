@@ -1,0 +1,16 @@
+安装scrapy框架
+1.安装scrapy：通过pip install scrapy安装
+2.如果在Windows下，还需要安装pypwin32，通过pip install pypwin32
+
+创建爬虫：
+创建项目："scrapy startproject[爬虫名字]"
+创建爬虫：进入所在项目，执行命令："scrapy genspider[爬虫名字][爬虫的域名]"
+
+项目结构：
+
+1.items.py:用来存放爬虫爬取下来数据的模型
+2.middlewares.py：用来存放各种中间文件
+3.pipelines.py：用来将items的模型存储到本地磁盘
+4、seetings.py：本爬虫的配置信息（比如请求头、多久发一次请求、ip代理池）
+5.scrapy.cfg：项目的配置文件
+6.spiders包：以后的爬虫都存放在这个里面
