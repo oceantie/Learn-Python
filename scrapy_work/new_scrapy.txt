@@ -14,3 +14,13 @@
 4、seetings.py：本爬虫的配置信息（比如请求头、多久发一次请求、ip代理池）
 5.scrapy.cfg：项目的配置文件
 6.spiders包：以后的爬虫都存放在这个里面
+
+
+爬取及运行方法：
+1.修改settings,里面的，ROBOTSTXT_OBEY改为false。修改请求头DEFAULT_REQUEST_HEADERS。
+2.在spider里面写主爬虫程序。在parse里写爬虫程序。
+3.通过scrapy crawl qsbk_spider运行程序。
+4.也可在文件根目录建一个start文件通过命令行运行，代码如下
+from scrapy import cmdline
+
+cmdline.execute(['scrapy','crawl','qsbk_spider'])
