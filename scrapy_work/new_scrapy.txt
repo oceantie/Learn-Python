@@ -24,3 +24,17 @@
 from scrapy import cmdline
 
 cmdline.execute(['scrapy','crawl','qsbk_spider'])
+
+糗事百科scrapy笔记
+1.response可执行xpath和css语法提取数据
+2.提取出来的数据是一个selector或者是一个selectorList对象，如果想获取其中的字符串，需要执行getall或者get。
+3.getall：获取selector中所有文本，返回一个列表。
+4.get方法：获取的是selector中第一个文本，返回的是str
+5.如果数据请求解析回来，要传给pipline除了，可以使用yield来返回。或者收集所有的item，最后统一使用return返回，
+6.item：建议在items.py中定义好模型，以后就不要使用字典
+7.pipeline：这个是专门用来保存数据的，其中
+	open_spider(self,spider)当爬虫打开的时候执行
+	process_item（self,item,spider）当爬虫有item传过来时会被调用
+	close_sider(self,spider):当爬虫关闭时会被调用
+
+8.要激活pipline，在settings.py里面，设置TIME_PIPLINES

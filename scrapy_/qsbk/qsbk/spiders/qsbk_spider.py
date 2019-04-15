@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from qsbk.items import QsbkItem
 from scrapy.http.response.html import HtmlResponse
 from scrapy.selector.unified import SelectorList
 
@@ -14,5 +15,7 @@ class QsbkSpiderSpider(scrapy.Spider):
            author=duanzi.xpath(".//h2/text()").get().strip()
            content=duanzi.xpath(".//div[@class='content']//text()").getall()
            content="".join(content).strip()
-           print(content)
+           item=QsbkItem(author=author,content=content)
+           yield item
+
 
