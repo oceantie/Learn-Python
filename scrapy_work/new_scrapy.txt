@@ -38,3 +38,18 @@ cmdline.execute(['scrapy','crawl','qsbk_spider'])
 	close_sider(self,spider):当爬虫关闭时会被调用
 
 8.要激活pipline，在settings.py里面，设置TIME_PIPLINES
+
+
+scrapy shell
+1.可以方便数据提取测试代码。
+2.如果需要执行scrapy命令，需要先进入scrapy所在的环境中。
+3.如果需要读取配置信息，需要先进入项目在执行。
+F:\Python\work\work-in-company\scrapy_\wxapp>scrapy shell http://www.wxapp-union.com/article-5107-1.html
+>>> title=response.xpath("//h1[@class='ph']/text()").get()
+>>> pritn(title)
+
+
+模拟登录
+1.想要发送post请求，推荐使用scrapy.FormRequest方法，可以指定表单数据。
+2，如果想在爬虫一开始就发送post请求，需要重写start_requests方法
+3.模拟登陆
