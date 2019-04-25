@@ -17,6 +17,6 @@ class Bmw5Spider(scrapy.Spider):
             #     # url="https:"+url
             #     print(url)
             urls=list(map(lambda url:response.urljoin(url),urls))
-            item=BmwItem(category=category,urls=urls)
+            item=BmwItem(category=category,image_urls=urls)
             yield item
             # print(urls)
