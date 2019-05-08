@@ -31,7 +31,7 @@ class JsSpider(CrawlSpider):
         read_count = article_data['note']['views_count']
         comment_count = article_data['note']['comments_count']
         like_count = article_data['note']['likes_count']
-        print(word_count)d
+        print(word_count)
 
         # word_count=response.xpath('//span[@class="wordage"]/text()').get()
         # comment_count=response.xpath("//span[@class='comments-count']/text()").get()
